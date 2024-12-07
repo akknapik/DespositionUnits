@@ -16,4 +16,8 @@ public class Incident {
         this.strategy = nameOfIncident.equals("Pożar") ? new FireStrategy() : new LocalThreatStrategy();
         this.falseAlarm = falseAlarm;
     }
+
+    public boolean isFalseAlarm() {
+        return falseAlarm;
+    }
 }

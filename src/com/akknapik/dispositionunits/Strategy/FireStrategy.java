@@ -1,8 +1,9 @@
 package com.akknapik.dispositionunits.Strategy;
 
-public class FireStrategy extends DispatchStrategy {
+public class FireStrategy implements DispatchStrategy {
+
     @Override
-    public DispatchStrategy dispositionUnits() {
-        return null;
+    public int requiredTrucks() {
+        return 3;
     }
 }

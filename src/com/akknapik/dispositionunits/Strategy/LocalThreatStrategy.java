@@ -1,8 +1,9 @@
 package com.akknapik.dispositionunits.Strategy;
 
-public class LocalThreatStrategy extends DispatchStrategy {
+public class LocalThreatStrategy implements DispatchStrategy {
+
     @Override
-    public DispatchStrategy dispositionUnits() {
-        return null;
+    public int requiredTrucks() {
+        return 2;
     }
 }
