@@ -1,8 +1,8 @@
 package com.akknapik.dispositionunits.Strategy;
 
-public class FireStrategy extends DispositionStrategy{
+public class FireStrategy extends DispatchStrategy {
     @Override
-    public DispositionStrategy dispositionUnits() {
+    public DispatchStrategy dispositionUnits() {
         return null;
     }
 }

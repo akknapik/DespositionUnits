@@ -49,8 +49,11 @@ public class Distance {
         for (Map.Entry<Unit, Double> entry : entries) {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
-
         return sortedMap;
+    }
+
+    public Iterable<Unit> getSortedUnitsIterator() {
+        return sortedDistanceToUnits.keySet();
     }
 
 }

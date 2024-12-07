@@ -1,5 +1,7 @@
 package com.akknapik.dispositionunits;
 
-public class SKKM {
+import java.util.List;
 
+public class SKKM {
+    private List<Unit> allUnits = Unit.createAllUnits();
 }
