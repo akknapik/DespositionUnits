@@ -1,6 +1,7 @@
 package com.akknapik.dispositionunits.State;
 
 import com.akknapik.dispositionunits.FireTruck;
+import com.akknapik.dispositionunits.Incident;
 
 public class OutUnitState implements IState{
     private FireTruck fireTruck;
@@ -10,7 +11,7 @@ public class OutUnitState implements IState{
     }
 
     @Override
-    public void dispatch() {
+    public void dispatch(Incident incident) {
         System.out.println("Wóz strażacki " + fireTruck.getName() + " jest obecnie na akcji.");
     }
 

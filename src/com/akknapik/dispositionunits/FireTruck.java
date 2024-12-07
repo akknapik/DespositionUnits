@@ -35,5 +35,13 @@ public class FireTruck {
         return state.isAvailable();
     }
 
+    public void dispatch(Incident incident) {
+        state.dispatch(incident);
+    }
+
+    public void returnToUnit() {
+        state.returnToUnit();
+    }
+
 
 }
