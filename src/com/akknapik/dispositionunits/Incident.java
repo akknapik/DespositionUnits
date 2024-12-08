@@ -40,10 +40,10 @@ public class Incident {
     public synchronized void logFalseAlarm() {
         if (!falseAlarmLogged) {
             System.out.println(
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                    "***************************************************************************************************************************************");
             System.out.println("Zdarzenie: " + nameOfIncident + ", lokalizacja: " + position + " to alarm fałszywy. Powrót samochodów do jednostek.");
             System.out.println(
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                    "***************************************************************************************************************************************");
             falseAlarmLogged = true;
         }
     }
