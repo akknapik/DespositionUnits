@@ -11,11 +11,7 @@ public class Main {
 
         Random random = new Random();
         while(true) {
-            String nameOfIncident = random.nextDouble() < 0.3 ? "Pożar" : "Miejscowe zagrożenie";
-            Position position = new Position(50.05 + random.nextDouble() * 0.1, 19.93 + random.nextDouble() * 0.1);
-            //Position position = new Position(50.14902631605296, 20.01143191694563);
-            boolean falseAlarm = random.nextDouble() < 0.05;
-            Incident incident = new Incident(nameOfIncident, position, falseAlarm);
+            Incident incident = new Incident();
             skkm.handleIncident(incident);
 
             long nextIncidentTime = (2000 + (long) (Math.random() * 8000));
