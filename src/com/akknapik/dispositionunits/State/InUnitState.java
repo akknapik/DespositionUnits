@@ -12,17 +12,19 @@ public class InUnitState implements  IState {
 
     @Override
     public void dispatch(Incident incident) {
-        System.out.println("Dysponuje wóz strażacki: " + fireTruck.getName());
+        System.out.println("#SKKM: Dysponuje wóz strażacki: " + fireTruck.getName());
         fireTruck.setState(new OutUnitState(fireTruck));
 
         new Thread(() -> {
             try {
-                long timeToArrive = (long) (Math.random() * 3000);
-                Thread.sleep(timeToArrive);
+                Thread.sleep(incident.getTimeToArrive());
                 if(!incident.isFalseAlarm()) {
-                    Thread.sleep((long) (5000 + Math.random() * 20000));
+                    Thread.sleep(incident.getActionTime());
                 }
-                Thread.sleep(timeToArrive);
+                else {
+                    incident.logFalseAlarm();
+                }
+                Thread.sleep(incident.getTimeToReturn());
                 fireTruck.returnToUnit();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);

@@ -2,6 +2,7 @@ package com.akknapik.dispositionunits.State;
 
 import com.akknapik.dispositionunits.FireTruck;
 import com.akknapik.dispositionunits.Incident;
+import com.akknapik.dispositionunits.SKKM;
 
 public class OutUnitState implements IState{
     private FireTruck fireTruck;
@@ -19,6 +20,10 @@ public class OutUnitState implements IState{
     public void returnToUnit() {
         System.out.println("Wóz strażacki " + fireTruck.getName() + " powrócił do jednostki.");
         fireTruck.setState(new InUnitState(fireTruck));
+
+        synchronized (SKKM.getLock()) {
+            SKKM.getLock().notifyAll();
+        }
     }
 
     @Override
