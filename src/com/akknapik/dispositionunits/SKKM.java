@@ -3,20 +3,25 @@ package com.akknapik.dispositionunits;
 import com.akknapik.dispositionunits.Strategy.Distance;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class SKKM {
-    private List<Unit> allUnits;
+    private List<Unit> allUnits = new ArrayList<>();
     private static final Object lock = new Object();
 
     public SKKM() {
     }
 
-    public void registerObserver(List<Unit> units) {
-        this.allUnits = units;
+    public void addObserver(Unit unit) {
+        allUnits.add(unit);
     }
 
-    public void handleIncident(Incident incident) {
+    public void removeObserver(Unit unit) {
+        allUnits.remove(unit);
+    }
+
+    public void notifyAll(Incident incident) {
         System.out.println(
                 "---------------------------------------------------------------------------------------------------------------------");
         System.out.println("Nowe zdarzenie: " + incident.getNameOfIncident() + ", lokalizacja: " + incident.getPosition().toString());
@@ -29,7 +34,10 @@ public class SKKM {
         synchronized (lock) {
             while (dispatchedTrucks.size() < requiredTrucks) {
                 dispatchedTrucks.clear();
-                for (Unit unit : distance.getSortedUnitsIterator()) {
+                Iterator<Unit> iterator = distance.getIterator();
+
+                while (iterator.hasNext()) {
+                    Unit unit = iterator.next();
                     List<FireTruck> availableTrucks = unit.getAvailableTrucks();
                     for (FireTruck fireTruck : availableTrucks) {
                         dispatchedTrucks.add(fireTruck);

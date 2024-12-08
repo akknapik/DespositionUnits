@@ -29,11 +29,9 @@ public class Distance {
 
         double x_1 = (r + alt_1) * Math.sin(lon_1) * Math.cos(lat_1);
         double y_1 = (r + alt_1) * Math.sin(lon_1) * Math.sin(lat_1);
-        double z_1 = (r + alt_1) * Math.cos(lon_1);
 
         double x_2 = (r + alt_2) * Math.sin(lon_2) * Math.cos(lat_2);
         double y_2 = (r + alt_2) * Math.sin(lon_2) * Math.sin(lat_2);
-        double z_2 = (r + alt_2) * Math.cos(lon_2);
 
         double dist = Math.sqrt((x_2 - x_1) * (x_2 - x_1) + (y_2 - y_1) *
                 (y_2 - y_1) + (alt_2-alt_1) * (alt_2 - alt_1));
@@ -52,8 +50,7 @@ public class Distance {
         return sortedMap;
     }
 
-    public Iterable<Unit> getSortedUnitsIterator() {
-        return sortedDistanceToUnits.keySet();
+    public Iterator<Unit> getIterator() {
+        return new DistanceIterator(sortedDistanceToUnits);
     }
-
 }
