@@ -16,4 +16,9 @@ public class Position {
     public double getLongitude() {
         return longitude;
     }
+
+    @Override
+    public String toString() {
+        return "(" + latitude + ", " + longitude + ")";
+    }
 }
