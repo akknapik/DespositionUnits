@@ -9,7 +9,6 @@ public class Main {
 
         skkm.registerObserver(Unit.createAllUnits());
 
-        Random random = new Random();
         while(true) {
             Incident incident = new Incident();
             skkm.handleIncident(incident);
